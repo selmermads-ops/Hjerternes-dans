@@ -10,8 +10,8 @@
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html">Bellasperanza</a>
-      <nav>
+      <a class="brand" href="index.html"><img src="images/Bella speranza logo.webp" alt="Bella Speranza"></a>
+      <nav aria-label="Hovednavigation">
         <a href="index.html">Forside</a>
         <a href="galleri.html">Galleri</a>
         <a href="home.html">English</a>
@@ -25,6 +25,17 @@
       <h1>Se inspirationsvideoer</h1>
       <p>Initiativtagerne Charlotte Aamand og Sorella Englund viser, hvordan ballet kan bruges som en inkluderende kunstform, hvor alle kan deltage, uanset fysiske udfordringer.</p>
       <p><a class="button" href="https://www.youtube.com/playlist?list=PLZbCf8oBUOdDGIE38MP44s-mGUjzT6-ih" target="_blank" rel="noopener">Se alle videoer på YouTube</a></p>
+    </section>
+
+    <section id="featured-video" class="container featured-video">
+      <div class="featured-video-copy">
+        <p class="eyebrow">Udvalgt video</p>
+        <h2>De Sjældneste – ny dokumentar</h2>
+        <p>Se den video, du har valgt, direkte på siden.</p>
+      </div>
+      <div class="featured-video-frame">
+        <iframe src="https://www.youtube.com/embed/usHhI-9mYDw" title="De Sjældneste – ny dokumentar" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
     </section>
 
     <section class="container video-list">
@@ -69,18 +80,10 @@
         players.push(new YT.Player('player-' + (i + 1), {
           width: '100%',
           videoId: '',
-          playerVars: {
-            listType: 'playlist',
-            list: playlistId,
-            rel: 0
-          },
+          playerVars: { listType: 'playlist', list: playlistId, rel: 0 },
           events: {
             onReady: function(event) {
-              event.target.cuePlaylist({
-                listType: 'playlist',
-                list: playlistId,
-                index: index
-              });
+              event.target.cuePlaylist({ listType: 'playlist', list: playlistId, index: index });
             }
           }
         }));
